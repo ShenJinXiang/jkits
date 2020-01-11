@@ -1,4 +1,4 @@
-package com.shenjinxiang.kit;
+package com.shenjinxiang.jkits.kit;
 
 import junit.framework.Assert;
 import org.junit.Test;

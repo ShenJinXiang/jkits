@@ -1,4 +1,4 @@
-package com.shenjinxiang.kit;
+package com.shenjinxiang.jkits.kit;
 
 public class StrKit {
 
