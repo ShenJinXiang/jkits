@@ -11,22 +11,37 @@ public class Base64Kit {
         return Base64.getEncoder().encode(bytes);
     }
 
-    public static String encode(byte[] bytes) throws UnsupportedEncodingException {
-        return new String(encodeByte(bytes), Consts.ENCODE);
+    public static String encode(byte[] bytes) {
+        try {
+            return new String(encodeByte(bytes), Consts.ENCODE);
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
-    public static byte[] encodeByte(String str) throws UnsupportedEncodingException {
+    public static byte[] encodeByte(String str) {
         if (StrKit.isBlank(str)) {
             return null;
         }
-        return encodeByte(str.getBytes(Consts.ENCODE));
+        try {
+            return encodeByte(str.getBytes(Consts.ENCODE));
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
-    public static String encode(String str) throws UnsupportedEncodingException {
+    public static String encode(String str) {
         if (StrKit.isBlank(str)) {
             return null;
         }
-        return encode(str.getBytes(Consts.ENCODE));
+        try {
+            return encode(str.getBytes(Consts.ENCODE));
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
     public static String encodeFile(File file) {
@@ -54,22 +69,37 @@ public class Base64Kit {
         return Base64.getDecoder().decode(bytes);
     }
 
-    public static String decode(byte[] bytes) throws UnsupportedEncodingException {
-        return new String(decodeByte(bytes), Consts.ENCODE);
+    public static String decode(byte[] bytes) {
+        try {
+            return new String(decodeByte(bytes), Consts.ENCODE);
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
-    public static byte[] decodeByte(String str) throws UnsupportedEncodingException {
+    public static byte[] decodeByte(String str) {
         if (StrKit.isBlank(str)) {
             return null;
         }
-        return decodeByte(str.getBytes(Consts.ENCODE));
+        try {
+            return decodeByte(str.getBytes(Consts.ENCODE));
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
-    public static String decode(String str) throws UnsupportedEncodingException {
+    public static String decode(String str) {
         if (StrKit.isBlank(str)) {
             return null;
         }
-        return decode(str.getBytes(Consts.ENCODE));
+        try {
+            return decode(str.getBytes(Consts.ENCODE));
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
     private static byte[] subBytes(byte[] src, int begin, int count) {
