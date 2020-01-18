@@ -10,6 +10,7 @@ import java.util.Properties;
 public class Config {
 
     public static final String NAME;
+    public static final int THREADSIZE;
 
     private static Properties properties;
 
@@ -17,6 +18,7 @@ public class Config {
         loadProperties();
 
         NAME = get("name");
+        THREADSIZE = getInt("threadSize");
     }
 
     private static int getInt(String key) {
