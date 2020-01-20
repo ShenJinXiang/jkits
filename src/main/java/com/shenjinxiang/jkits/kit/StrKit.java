@@ -6,6 +6,7 @@ import com.shenjinxiang.jkits.core.Consts;
 import java.io.*;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.net.URL;
 import java.security.CodeSource;
 import java.security.MessageDigest;
 import java.security.ProtectionDomain;
@@ -14,6 +15,13 @@ public class StrKit {
 
     public static boolean isBlank(String str) {
         return null == str || "".equals(str);
+    }
+
+    public static boolean isJar() {
+        URL url = StrKit.class.getResource("");
+        String protocol = url.getProtocol();
+        System.out.println("protocol: " + protocol);
+        return "jar".equalsIgnoreCase(protocol);
     }
 
     public static String getCrrentFilePath() throws IllegalAccessException {
@@ -25,7 +33,7 @@ public class StrKit {
     }
 
     private static File getCurrentFile() throws IllegalAccessException {
-        ProtectionDomain protectionDomain = Start.class.getProtectionDomain();
+        ProtectionDomain protectionDomain = StrKit.class.getProtectionDomain();
         CodeSource codeSource = protectionDomain.getCodeSource();
         URI location = null;
         try {
