@@ -20,7 +20,6 @@ public class StrKit {
     public static boolean isJar() {
         URL url = StrKit.class.getResource("");
         String protocol = url.getProtocol();
-        System.out.println("protocol: " + protocol);
         return "jar".equalsIgnoreCase(protocol);
     }
 
