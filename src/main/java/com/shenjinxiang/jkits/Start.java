@@ -1,5 +1,6 @@
 package com.shenjinxiang.jkits;
 
+import com.shenjinxiang.jkits.core.Consts;
 import com.shenjinxiang.jkits.kit.StrKit;
 
 public class Start {
@@ -14,7 +15,7 @@ public class Start {
         if (StrKit.isJar()) {
             System.out.println("jar包运行");
         } else {
-            System.out.println("ide启动");
+            Consts.setDevMode(true);
         }
     }
 
