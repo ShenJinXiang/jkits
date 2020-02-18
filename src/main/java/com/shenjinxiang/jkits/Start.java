@@ -7,11 +7,6 @@ import org.apache.commons.cli.*;
 public class Start {
 
     public static void main(String[] args) throws Exception {
-//        System.out.println(System.getProperty("user.dir"));
-//        System.out.println(StrKit.getCrrentFilePath());
-//        System.out.println(StrKit.getCurrentPath());
-//        System.out.println(Class.class.getResource("/").getPath());
-//        System.out.println(Start.class.getResource("/").getPath());
         if (StrKit.isJar()) {
             configCommondLine(args);
         } else {
