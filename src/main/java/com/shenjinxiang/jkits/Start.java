@@ -1,17 +1,17 @@
 package com.shenjinxiang.jkits;
 
 import com.shenjinxiang.jkits.core.Consts;
-import com.shenjinxiang.jkits.kit.StrKit;
 import org.apache.commons.cli.*;
 
 public class Start {
 
     public static void main(String[] args) throws Exception {
-        if (StrKit.isJar()) {
-            configCommondLine(args);
-        } else {
-            Consts.setDevMode(true);
-        }
+        commondLine(args);
+//        if (StrKit.isJar()) {
+//            configCommondLine(args);
+//        } else {
+//            Consts.setDevMode(true);
+//        }
     }
 
     private static void configCommondLine(String[] args) throws ParseException {
@@ -25,4 +25,19 @@ public class Start {
         Consts.setDevMode(devMode);
     }
 
+    private static void commondLine(String[] args) throws ParseException {
+        System.out.println("输入参数：");
+        for (String arg: args) {
+            System.out.println(arg);
+        }
+        System.out.println("参数打印结束");
+
+        Options options = new Options();
+
+        Option wzOption = Option.builder().argName("wz").desc("网站操作").build();
+        options.addOption(wzOption);
+
+        CommandLineParser parser = new DefaultParser();
+        CommandLine commandLine = parser.parse(options, args);
+    }
 }
